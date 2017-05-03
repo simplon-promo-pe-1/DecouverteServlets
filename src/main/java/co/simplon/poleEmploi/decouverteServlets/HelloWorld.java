@@ -11,15 +11,43 @@ import javax.servlet.http.HttpServletResponse;
 // Extend HttpServlet class
 public class HelloWorld extends HttpServlet {
 
-	private String message;
+	private String messageGet;
+	private String messagePut;
 
 	public void init() throws ServletException {
 		// Do required initialization
-		message = "Hello World";
+		messageGet = "Hello ";
+		messagePut = "Bonjour ";
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String message = messageGet;
+		String parametre = request.getParameter("nom");
+		if (parametre != null) {
+			message += parametre;
+		} else {
+			message += "World";
+		}
+
+		// Set response content type
+		response.setContentType("text/html");
+
+		// Actual logic goes here.
+		PrintWriter out = response.getWriter();
+		out.println("<h1>" + message + "</h1>");
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String message = messagePut;
+		String parametre = request.getParameter("nom");
+		if (parametre != null) {
+			message += parametre;
+		} else {
+			message += "World";
+		}
+
 		// Set response content type
 		response.setContentType("text/html");
 

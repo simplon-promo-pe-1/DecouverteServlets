@@ -7,8 +7,13 @@
 		<servlet-class>co.simplon.poleEmploi.decouverteServlets.HelloWorld</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>ByeWorld</servlet-name>
+		<servlet-class>co.simplon.poleEmploi.decouverteServlets.ByeWorld</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
-		<servlet-name>HelloWorld</servlet-name>
-		<url-pattern>/bonjour</url-pattern>
+		<servlet-name>ByeWorld</servlet-name>
+		<url-pattern>/aurevoir</url-pattern>
 	</servlet-mapping>
 </web-app>
