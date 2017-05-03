@@ -13,6 +13,11 @@
 	</servlet>
 
 	<servlet-mapping>
+		<servlet-name>HelloWorld</servlet-name>
+		<url-pattern>/bonjour</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
 		<servlet-name>ByeWorld</servlet-name>
 		<url-pattern>/aurevoir</url-pattern>
 	</servlet-mapping>
