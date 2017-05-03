@@ -41,6 +41,11 @@ public class HelloWorld extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String parametre = request.getParameter("nom");
+		if (parametre == null || parametre.equals("")) {
+			parametre = "World";
+		}
+		request.setAttribute("nom", parametre);
 		RequestDispatcher rd = request.getRequestDispatcher("hello.jsp");
 		rd.forward(request, response);
 	}
