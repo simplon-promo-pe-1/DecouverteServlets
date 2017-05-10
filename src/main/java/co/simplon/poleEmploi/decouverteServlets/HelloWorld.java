@@ -45,8 +45,9 @@ public class HelloWorld extends HttpServlet {
 		if (parametre == null || parametre.equals("")) {
 			parametre = "World";
 		}
-		request.setAttribute("nom", parametre);
-		RequestDispatcher rd = request.getRequestDispatcher("hello.jsp");
+		request.setAttribute("nom", parametre.toUpperCase());
+		RequestDispatcher rd = request
+				.getRequestDispatcher("WEB-INF/hello.jsp");
 		rd.forward(request, response);
 	}
 
