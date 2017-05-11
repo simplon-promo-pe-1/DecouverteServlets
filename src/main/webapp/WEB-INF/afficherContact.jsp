@@ -15,14 +15,15 @@
 	Email : ${contact.email}
 	<br/>
 	<br/>
-	<% Contact contact = ((Contact) request.getAttribute("contact")); %>
+	<jsp:useBean class="co.simplon.annuaire.domaine.Contact" id="contact" scope="request" />
 	Nombre de hobbies : <%= contact.getHobbies().size() %>
 	<br/>
-	<ul>
+	<ul>	
 		<%
 		for (Hobbie hobby : contact.getHobbies()) {
+			pageContext.setAttribute("hobby", hobby);
 		%>
-			<li><%= hobby.getNom() %></li>
+			<li>${hobby.nom}</li>
 		<%
 		}
 		%>
