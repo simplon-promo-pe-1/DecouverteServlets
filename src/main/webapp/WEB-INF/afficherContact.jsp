@@ -1,5 +1,6 @@
 <%@page import="co.simplon.annuaire.domaine.Hobbie"%>
 <%@ page import="co.simplon.annuaire.domaine.Contact" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,18 +16,14 @@
 	Email : ${contact.email}
 	<br/>
 	<br/>
-	<jsp:useBean class="co.simplon.annuaire.domaine.Contact" id="contact" scope="request" />
-	Nombre de hobbies : <%= contact.getHobbies().size() %>
+	<c:set var="hobbies" value="${contact.hobbies}" scope="page" />
+	<jsp:useBean id="hobbies" type="java.util.Set<Hobbie>" />
+	Nombre de hobbies : <%= hobbies.size() %>
 	<br/>
 	<ul>	
-		<%
-		for (Hobbie hobby : contact.getHobbies()) {
-			pageContext.setAttribute("hobby", hobby);
-		%>
+		<c:forEach items="${hobbies}" var="hobby">
 			<li>${hobby.nom}</li>
-		<%
-		}
-		%>
+		</c:forEach>
 	</ul>
 </body>
 </html>
