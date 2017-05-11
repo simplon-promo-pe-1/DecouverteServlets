@@ -1,8 +1,8 @@
 package co.simplon.poleEmploi.decouverteServlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,12 +34,10 @@ public class CreerContact extends HttpServlet {
 		contact.setPrenom(request.getParameter("prenom"));
 		contact.setEmail(request.getParameter("email"));
 
-		// Set response content type
-		response.setContentType("text/html");
-
-		// Actual logic goes here.
-		PrintWriter out = response.getWriter();
-		out.println("<h1>toString() = " + contact + "</h1>");
+		request.setAttribute("contact", contact);
+		RequestDispatcher rd = request
+				.getRequestDispatcher("WEB-INF/afficherContact.jsp");
+		rd.forward(request, response);
 	}
 
 }
