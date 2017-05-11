@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	version="3.1">
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<servlet-name>HelloWorld</servlet-name>
-		<servlet-class>co.simplon.poleEmploi.decouverteServlets.HelloWorld</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ByeWorld</servlet-name>
-		<servlet-class>co.simplon.poleEmploi.decouverteServlets.ByeWorld</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>HelloWorld</servlet-name>
-		<url-pattern>/bonjour</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ByeWorld</servlet-name>
-		<url-pattern>/aurevoir</url-pattern>
-	</servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>HelloWorld</servlet-name>
+    <servlet-class>co.simplon.poleEmploi.decouverteServlets.HelloWorld</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ByeWorld</servlet-name>
+    <servlet-class>co.simplon.poleEmploi.decouverteServlets.ByeWorld</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloWorld</servlet-name>
+    <url-pattern>/bonjour</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ByeWorld</servlet-name>
+    <url-pattern>/aurevoir</url-pattern>
+  </servlet-mapping>
 </web-app>

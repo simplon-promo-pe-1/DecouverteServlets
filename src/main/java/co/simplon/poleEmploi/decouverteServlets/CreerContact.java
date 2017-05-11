@@ -1,7 +1,9 @@
 package co.simplon.poleEmploi.decouverteServlets;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -45,8 +47,13 @@ public class CreerContact extends HttpServlet {
 		hobbies.add(hobby1);
 		hobbies.add(hobby2);
 		contact.setHobbies(hobbies);
-
-		request.setAttribute("contact", contact);
+		final int size = hobbies.size();
+		
+		Map<String, Object> monModel = new HashMap<String, Object>();
+		monModel.put("contact", contact);
+		monModel.put("nbHobbies", size);
+		request.setAttribute("model", monModel);
+		
 		RequestDispatcher rd = request
 				.getRequestDispatcher("WEB-INF/afficherContact.jsp");
 		rd.forward(request, response);

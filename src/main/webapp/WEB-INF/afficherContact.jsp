@@ -1,5 +1,3 @@
-<%@page import="co.simplon.annuaire.domaine.Hobbie"%>
-<%@ page import="co.simplon.annuaire.domaine.Contact" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -9,6 +7,8 @@
 </head>
 <body>
 	<h1>Mon contact</h1>
+	<c:set var="contact" value="${model.contact}" scope="page" />
+	<c:set var="hobbies" value="${contact.hobbies}" scope="page" />
 	Nom : ${contact.nom}
 	<br/>
 	Prénom : ${contact.prenom}
@@ -16,9 +16,7 @@
 	Email : ${contact.email}
 	<br/>
 	<br/>
-	<c:set var="hobbies" value="${contact.hobbies}" scope="page" />
-	<jsp:useBean id="hobbies" type="java.util.Set<Hobbie>" />
-	Nombre de hobbies : <%= hobbies.size() %>
+	Nombre de hobbies : ${model.nbHobbies}
 	<br/>
 	<ul>	
 		<c:forEach items="${hobbies}" var="hobby">
