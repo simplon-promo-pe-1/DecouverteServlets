@@ -1,6 +1,8 @@
 package co.simplon.poleEmploi.decouverteServlets;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.simplon.annuaire.domaine.Contact;
+import co.simplon.annuaire.domaine.Hobbie;
 
 /**
  * Servlet implementation class CreerContact
@@ -33,6 +36,15 @@ public class CreerContact extends HttpServlet {
 		contact.setNom(request.getParameter("nom"));
 		contact.setPrenom(request.getParameter("prenom"));
 		contact.setEmail(request.getParameter("email"));
+
+		Hobbie hobby1 = new Hobbie();
+		hobby1.setNom("Foot");
+		Hobbie hobby2 = new Hobbie();
+		hobby2.setNom("Running");
+		Set<Hobbie> hobbies = new HashSet<>();
+		hobbies.add(hobby1);
+		hobbies.add(hobby2);
+		contact.setHobbies(hobbies);
 
 		request.setAttribute("contact", contact);
 		RequestDispatcher rd = request
